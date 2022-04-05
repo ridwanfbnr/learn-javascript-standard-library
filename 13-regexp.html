@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RegExp</title>
+</head>
+<body>
+
+    <script>
+
+        /*
+            RegExp
+        
+        -   RegExp merupakan implementasi dari reguler expression di JavaScript
+        -   Reguler Expression merupakan fitur untuk mencari text dengan pola
+        -   Membuat Reguler Expression di JavaScript bisa dilakukan dengan dua cara, yaitu
+            menggunakan literal notation atau membuat object RegExp
+        -   https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp
+        */
+
+        {
+            //  Create RegExp
+            const regex1 = /eko/;
+            const regex2 = new RegExp("eko");
+            const regex3 = new RegExp(/eko/);
+        }
+
+        /*
+            RegExp Instance Method
+
+            Instance Method             Keterangan
+
+            exec(value) : result        Eksekusi regex, jika menemukan data sesuai pola, maka kembalikan resultnya, jika tidak maka null
+
+            test(value) : boolean       Eksekusi regex, jika menemukan data sesuai pola, maka return true, jika tidak maka false
+        */
+        {
+            //  RegExp Instance Method
+            const person = "eko kurniawan eko khannedy"
+            const regex = /kurniawan/;
+
+            const resultRegex = regex.exec(person);
+            console.info(resultRegex);
+            console.info(regex.exec("ridwan"));
+
+            const testRegex = regex.test(person);
+            console.info(testRegex);
+            console.info(regex.test("ridwan"));
+        }
+
+
+        /*
+            RegExp Modifier
+
+        -   RegExp memiliki modifier untuk mengubah sifat cara pencarian
+
+            Modifier        Keterangan
+            i               Regex menjadi incase sensitive
+            g               Pencarian dilakukan secara global, secara default setelah menemukan data, pencarian akan berhenti
+            m               Multiline, pencarian dilakukan tiap baris(enter);
+        */
+        {
+            //  RegExp Modifier
+            const name = "eko\nEko kurniawan\neko Kurniawan khannedy\nEko Khannedy";
+
+            const regex1 = /eko/ig;
+            const regex2 = /kurniawan/ig;
+            const regex3 = new RegExp("khannedy", "ig");
+
+            let result;
+            while((result = regex1.exec(name)) !== null) {
+                console.info(result);
+            }
+
+            while((result = regex2.exec(name)) !== null) {
+                console.info(result);
+            }
+
+            while((result = regex3.exec(name)) !== null) {
+                console.info(result);
+            }
+        }
+
+        /*
+            Fitur RegExp Lainnya
+
+        -   Assersions: indikasi awal dan akhir teks
+            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions/Assertions
+
+        -   Character Classes : membedakan antara huruf dan angka
+            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions/Character_Classes
+
+        -   Group dan Range : melakukan grouping atau range huruf atau angka
+            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions/Groups_and_Ranges
+
+        -   Quantifiers : menentukan jumlah huruf atau angka
+            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions/Quantifiers
+        */
+
+        {
+            //  Contoh Fitur RegExp
+            //  Advance RegExp
+            const name = "eko eki eka eku eky eke edo Eki";
+            const regex = /ek[aiueo]/ig;
+
+            while((result = regex.exec(name)) !== null) {
+                console.info(result);
+            }
+        }
+
+
+        /*
+            Reguler Expression di String
+
+        -   Di JavaScript, tipe data String memiliki instance method yang dapat memanfaatkan
+            RegExp untuk melakukan pencarian
+
+            String Method                   Keterangan
+            match(regex) : array            Mencari semua data yang sesuai dengan regex
+            search(regex) : index           Mencari index data yang sesuai dengan regex
+            replace(regex, value)           Mengubah data dengan value yang sesuai regex
+            repleceAll(regex, value)        Mengubah semua data dengan value yang sesuai regex
+            split(regex) : array            Memotong string dengan regex
+        */
+
+        const name = "eko eki eka eku eky eke edo Eki";
+
+        console.info(name.match(/ek[aiueo]/ig));
+        console.info(name.search(/ek[aiueo]/ig));
+        console.info(name.replace(/ek[aiueo]/i, "kamu"));
+        console.info(name.replaceAll(/ek[aiueo]/ig, "kamu"));
+        console.info(name.split(/e/ig));
+
+        
+
+
+    </script>
+    
+</body>
+</html>

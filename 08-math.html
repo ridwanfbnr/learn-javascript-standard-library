@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math</title>
+</head>
+<body>
+
+    <script>
+
+        /*
+            Math
+
+        -   Math merupakan class di JavaScript yang berisikan static property dan method
+            untuk operasi matematika
+        -   Ada banyak sekali static property dan method di Math
+        -   Math hanya bisa digunakan untuk tipe data number, tidak bisa digunakan untuk
+            tipe data BigInt
+        -   https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math
+        */
+
+        //  Math
+        const numbers = [10, 1, 3, 25, 29, 50, 9];
+
+        const maximal = Math.max(...numbers);
+        console.info(maximal); // 50
+
+        const minimal = Math.min(...numbers);
+        console.info(minimal); // 1
+
+
+        console.info(Math.max(10, 15, 25, 8, 30)); // 30 (mencari data yang paling besar)
+        console.info(Math.min(10, 15, 25, 8, 30)); // 8 (mencari data yang paling kecil)
+        console.info(Math.round(10.5)); // 11 (pembulatan yang lebih dekat)
+        console.info(Math.round(10.8)); // 11 (pembulatan yang lebih dekat)
+        console.info(Math.round(10.3)); // 10 (pembulatan yang lebih dekat)
+        console.info(Math.floor(10.8)); // 10 (pembulatan selalu ke bawah)
+        console.info(Math.ceil(10.2)); // 11 (pembulatan selalu ke atas)
+
+    </script>
+    
+</body>
+</html>

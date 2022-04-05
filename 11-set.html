@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set</title>
+</head>
+<body>
+
+    <script>
+
+        /*
+            Set
+
+        -   Set merupakan implementasi dati struktur data yang berisikan data-data unique
+        -   Set mirip seperti Array, hanya saja isi data nya selalu unique
+        -   Jika kita menambahkan data yang sama, maka data hanya akan diterima satu saja
+        -   Set mengimplementasikan kontrak iterable, sehingga bisa diiterasi secara default
+        -   https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set
+        */
+
+        /*
+            Set Instance Method & Property
+
+            Method & Property           Keterangan
+        -   size                        Mengetahui Panjang Set
+        -   add(value)                  Menambahkan data ke Set
+        -   has(value)                  Mengecek apakah set memiliki value
+        -   delete(value)               Menghapus value dari set
+        -   forEach(value => )          Melakukan iterasi set
+        */
+
+        //  Set
+        const person = new Set();
+
+        person.add("Eko");
+        person.add("Eko");
+        person.add("Kurniawan");
+        person.add("Khannedy");
+
+        console.info(person);
+        console.info(person.has("Eko"));
+        console.info(person.size);
+
+        person.forEach((value) => console.info(value));
+
+
+    </script>
+    
+</body>
+</html>

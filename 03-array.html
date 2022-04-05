@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array</title>
+</head>
+<body>
+
+    <script>
+
+        //  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+
+        {
+            /*
+                Array Loop
+
+            -   Sebelumnya kita biasa menggunakan for in dan for of untuk melakukan iterasi Array,
+                namun Array juga memiliki method yang bernama forEach()
+            -   Method forEach biasa digunakan juga untuk melakukan iterasi data Array 
+            */
+
+            //  Array Loop
+            const arrayPerson = ["Eko", "Kurniawan", "Khannedy"];
+
+            //  Function Anonymous
+            arrayPerson.forEach(function(value, index) {
+                console.info(`${index} : ${value}`);
+            })
+
+            //  Arrow Function
+            arrayPerson.forEach((value, index) => {console.info(`${index} : ${value}`);});
+
+            arrayPerson.forEach(value => {console.info(`${value}`)});
+        }
+
+        {
+            /*
+                Array queue
+            
+            -   Dalam struktur data, terdapat tipe struktur data bernama Queue (Antrian)
+            -   Dimana data masuk akan diposisikan di urutkan paling belakang
+            -   Sedangkan data keluar akan diposisikan dari urutan paling depan
+            -   Mirip sekali dengan antrian, atau istilah nya FIFO (first in first out)
+            -   Kita bisa menggunakan array dengan bantuan function push() untuk menambah data
+                dibelakang, dan shift() untuk mengambil dan menghapus data paling depan
+            */
+
+            //  Array Queue
+            const queue = [];
+
+            queue.push("Queue Eko");
+            queue.push("Queue Kurniawan");
+            queue.push("Queue Khannedy");
+
+            console.info(queue.shift());
+            console.info(queue.shift());
+            console.info(queue.shift());
+            console.info(queue.shift()); // undefined karna sudah tidak ada data sama sekali
+        }
+
+        {
+            /*
+                Array Stack
+
+            -   Struktur data Stack (Tumpukan) kebalikan dari queue, dimana aturan nya mirip
+                dengan tumpukan kartu
+            -   Saat kita memasukkan data, kita akan memasukkan di urutan paling belakang
+                (atau atas)
+            -   Sedangkan saat kita mengambil data, kita akan mengambil data dari paling belakang
+                (atau atas) telebih dahulu
+            -   Stack ini sifatnya LIFO (last in first out)
+            -   Untuk menambah urutan di paling belakang, kita bisa menggunakan funtion push()
+            -   Dan untuk mengambil dan menghapus paling belakang, kita bisa menggunakan
+                function pop()
+            */
+
+            //  Array Stack
+            const stack = [];
+
+            stack.push("Stack Eko");
+            stack.push("Stack Kurniawan");
+            stack.push("Stack Khannedy");
+
+            console.info(stack.pop());
+            console.info(stack.pop());
+            console.info(stack.pop());
+            console.info(stack.pop()); // undefined karna sudah tidak ada data sama sekali
+        }
+
+        {
+            /*
+                Array memiliki banyak function untuk melakukan untuk pencarian:
+
+            Function                Keterangan
+            find()                  Mencari data sesuai dengan kondisi
+            findIndex()             Mencari data index sesuai dengan kondisi
+            includes()              Mengecek apakah ada data
+            indexOf()               Mengecek posisi index data
+            lastIndexOf()           Mengecek posisi index data terakhir
+            */
+
+            //  Array Search
+            const source = [1, 2, 3, 4, 5, 1, 2, 3, 4, 5,];
+
+            console.info(source.find(value => value > 3)); // 4
+            console.info(source.findIndex(value => value > 3)); // 3
+            console.info(source.includes(7)); //false, karna tidak ada data 7
+            console.info(source.indexOf(5)); // 4
+            console.info(source.lastIndexOf(5)); // 9
+        }
+
+        {
+            /*
+                Array Filter
+
+            Function                            Keterangan
+            filter(value => boolean) : array    Melakukan filter data yang kondisinya bernilai true
+            */
+
+            //  Array Filter
+            const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+            const ganjil = numbers.filter(value => value % 2 === 1);
+            const genap = numbers.filter(value => value % 2 === 0);
+
+            console.info(numbers);
+            console.info(ganjil);
+            console.info(genap);
+        }
+
+        {
+            /*
+                Array Transform
+
+            Array juga memiliki function yang digunakan untuk transformasi
+
+            function            Keterangan
+            map()               Melakukan tiap value dan menghasilkan array result
+            reduce()            Melakukan transform dengan menggunakan value array dan
+                                selanjutnya, lalu hasilnya dilanjutkan ke iterasi selanjutnya 
+            reduceRight()       Sama seperti reduce(), namun dilakukkan dari belakang
+            */
+
+            //  Array Transform
+            const names = ["Eko", "Kurniawan", "Khannedy"];
+
+            const namesUpper = names.map(value => value.toUpperCase());
+            console.info(namesUpper);
+
+            const namesReduce = names.reduce((before, value) => before + " " + value);
+            console.info(namesReduce);
+
+            const namesRight = names.reduceRight((before, value) => before + " " + value);
+            console.info(namesRight);
+
+
+            const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+            const total = numbers.reduce((sum, value) => sum + value);
+            console.info(total);
+        }
+
+    </script>
+    
+</body>
+</html>

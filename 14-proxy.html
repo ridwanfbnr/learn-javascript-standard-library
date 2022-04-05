@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proxy</title>
+</head>
+<body>
+    
+    <script>
+
+        /*
+            Proxy
+
+        -   Proxy merupakan fitur yang bisa digunakan sebagai wakil sebuah data
+        -   Dengan menggunakan proxy, semua interaksi ke data akan melalui proxy terlebih dahulu
+        -   Dengan ini, kita bisa melakukan apapun sebelum interaksi dilakukan ke data yang dituju
+        -   https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy
+        */
+
+        /*
+            Proxy Handler
+        
+        -   Pembuatan proxy perlu menggunakan handler, dimana dalam handler, kita bisa membuat
+            function yang dinamakan interceptor yang digunakan ketika mengambil data atau
+            mengubah data ke target
+        -   Untuk membuat proxy, kita bisa menggunakan new Proxy(target, handler)
+        */
+
+        //  Membuat Handler
+        const personTarget = {
+            middleName: "Kurniawan"
+        };
+
+        const personHandler = {
+            get: function (target, property) {
+                console.info(`Access Property ${property}`); // Log Handler
+                return target[property];
+            },
+            set: function (target, property, value) {
+                console.info(`Change Property ${property} : ${value}`); // Log Handler
+                if(value == null) {
+                    target[property] = "Tidak Boleh null";
+                } else {
+                    target[property] = value;
+                }
+            }
+        }
+
+        const personProxy = new Proxy(personTarget, personHandler);
+        personProxy.firstName = "Eko";
+        personProxy.lastName = null;
+
+        console.info(personProxy.firstName);
+        console.info(personProxy.middleName);
+        console.info(personProxy.lastName);
+        console.info(personTarget);
+
+
+        /*
+            Proxy dan Handler
+
+        -   Saat kita mengubah data proxy, secara otomatis data akan dikirim ke target melalui
+            handler dengan memanggil function set(targer, property, value)
+        -   Saat kita mengambil data proxy, secara otomatis data akan diambil dari target melalui
+            handler dengan memanggil function get(terget, property)
+        -   Artinya jika kita ingin melakukan sesuatu sebelumnya dan setelahnya, bisa kita
+            lakukan di handler
+        */
+
+
+
+
+    </script>
+    
+</body>
+</html>

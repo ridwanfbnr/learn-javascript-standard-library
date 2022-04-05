@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Object</title>
+    </head>
+    <body>
+        <script>
+            //  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object
+
+            {
+                /*
+            Object Freeze dan Seal
+        
+            -   Secara default, object bisa diubah atau dihapus properties nya
+            -   Jika kita ingin mengubah sebuah object menjadi object yang tidak bisa diubah
+                atau dihapus, kita bisa menggunakan beberapa static method
+            -   Object.freeze() digunakan untuk mengubah object menjadi object yang tidak bisa diubah
+                atau dihapus attribute nya
+            -   Object.seal() digunakan untuk mengubah object menjadi object yang tidak bisa dihapus attribute nya
+            */
+
+                //  Object Freeze dan Seal
+                const person = {
+                    firstName: "Eko",
+                    lastName: "Khannedy",
+                };
+
+                Object.freeze(person);
+
+                person.firstName = "Budi"; // tidak bisa diubah
+                person.middleName = "Kurniawan"; //  tidak bisa menambah property
+                delete person.lastName; // tidak bisa dihapus
+
+                console.info(person);
+
+                const personTwo = {
+                    firstName: "Eko",
+                    lastName: "Khannedy",
+                };
+
+                Object.seal(personTwo);
+
+                personTwo.firstName = "Budi"; // bisa diubah tapi tidak bisa dihapus
+                personTwo.middleName = "Kurniawan"; //  tidak bisa menambah property
+                delete personTwo.lastName; // tidak bisa dihapus
+
+                console.info(personTwo);
+            }
+
+            {
+                /*
+                Object Assign
+
+            -   Kadang kita ada kasus untuk menggabungkan semua attribute dari sebuah object
+                ke object lain
+            -   Hal ini bisa kita lakukan dengan menggabungkan Object.assign(target, source)
+            */
+
+                //  Object Assign
+                const person = {
+                    firstName: "Eko",
+                };
+
+                const personTwo = {
+                    lastName: "Khannedy",
+                };
+
+                const resultPerson = Object.assign(person, personTwo);
+                console.info(resultPerson);
+            }
+
+            {
+                /*
+                Object Property Name & Value
+
+            -   Object juga memiliki static method untuk digunakan mengambil semua property name 
+                dan value
+            -   Object.values() digunakan untuk mengambil semua property value
+            -   Object.getOwnPropertyNames() digunakan untuk mengambil semua property name
+            */
+
+                //  Object Property Name & Value
+                const person = {
+                    firstName: "Eko",
+                    lastName: "Khannedy",
+                };
+
+                console.info(Object.values(person));
+                console.info(Object.getOwnPropertyNames(person));
+            }
+        </script>
+    </body>
+</html>

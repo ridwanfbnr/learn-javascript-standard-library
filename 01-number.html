@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number</title>
+</head>
+<body>
+
+    <script>
+
+        /*
+            Number
+
+        -   Number merupakan function yang digunakan untuk melakukan konversi ketipe data number
+        -   Jika Data tidak bisa dikonversi ke number, secara otomatis hasilnya adalah NaN
+        -   https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number
+        */
+
+        const input = "12345";
+        const number = Number(input);
+
+        console.info(typeof input);
+        console.info(typeof number);
+        console.info(number);
+
+        console.info(Number("salah"));
+
+
+        /*
+            Number Static Properties
+
+        -   Number Memiliki banyak Static Properties
+        -   Number.MIN_VALUE untuk mendapatkan number minimal
+        -   Number.MAX_VALUE untuk mendapatkan number maximal
+        -   https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number#static_properties
+        */
+
+        console.info(Number.MIN_VALUE);
+        console.info(Number.MAX_VALUE);
+        console.info(Number.MIN_SAFE_INTEGER);
+        console.info(Number.MAX_SAFE_INTEGER);
+        console.info(Number.NaN);
+
+
+        /*
+            Number Static Methods
+
+        -   Number memiliki banyak static method, seperti:
+        -   Number.isNan(value) untuk mengecek apakah value NaN atau Bukan
+        -   Number.isInteger(value) untuk mengecek apakah value integer atau bukan
+        -   https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number#static_methods
+        */
+
+        const data = Number("12345");
+
+        console.info(Number.isNaN(data));
+        console.info(Number.isInteger(data));
+
+
+        /*
+            Number Instance Method
+
+        -   Number memiliki banyak instance method, seperti:
+        -   Number.toLocalString(locale) untuk mengubah number menjadi string sesuai locale
+        -   https://www.lansweeper.com/knowladgebase/list-of-currency-culture-codes/
+        -   Number.toString(radix) untuk mengubah number menjadi string sesuai radix
+        -   https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number#instance_methods
+        */
+
+        const value = Number("12345");
+
+        console.info(value.toString(2));
+        console.info(value.toLocaleString("id-ID"));
+        console.info(value.toLocaleString("en-US"));
+
+
+    </script>
+    
+</body>
+</html>
